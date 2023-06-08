@@ -22,8 +22,8 @@ capture set matsize 11000
 log using "dhs_extract_prep.txt", text replace
 
 * Define OS for automated file opening etc
-*global stata_os "UNIX"
-global stata_os "MAC"
+global stata_os "UNIX"
+*global stata_os "MAC"
 *global stata_os "WIN"
 
 	**********************
