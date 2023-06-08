@@ -29,7 +29,7 @@ global stata_os "MAC"
 	**********************
 	*Luc/Akash Cadejo server dirs:
 	global home_dir "raid/lfborden/Endogenous_Fertility/EndoFert"
-	global data_dir "$home_dir/DHS Database/"
+	global data_dir "$home_dir/DHS Database"
 	global dofiles_dir "$home_dir/Do files"
 	
 	global dhs_dir "$data_dir/raw_dhs_data"
