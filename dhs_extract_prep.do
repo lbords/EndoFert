@@ -85,7 +85,7 @@ global stata_os "UNIX"
 
 	global countriesList ""
 	
-	
+	{
 				cd $dhs_dir
 				
 				//* unzip the individual level file containing IR (for indiv recode) and make sure all unzipped files are lower case (-L)//
