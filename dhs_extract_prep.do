@@ -88,15 +88,15 @@ global stata_os "UNIX"
 	
 				cd "$dhs_dir
 				
-				* unzip the individual level file containing IR (for indiv recode) and make sure all unzipped files are lower case (-L)
-				* this should leave a single .dta file in the directory, and a bunch of other associated *ir* files*
+				//* unzip the individual level file containing IR (for indiv recode) and make sure all unzipped files are lower case (-L)//
+				//* this should leave a single .dta file in the directory, and a bunch of other associated *ir* files*//
 				
 				capture !unzip -o -L *IR*.zip
 				capture !unzip -o -L *IR*.ZIP
 				capture !unzip -o -j -LL *ir*.zip 
 			
-				* load the appropriate dta file into a tempfile, insheet that, and extract the file name 
-				*JAH ADJUSTMENTS TO DEAL WITH WEIRD MAC ZIPPED NEW FILES*
+				//* load the appropriate dta file into a tempfile, insheet that, and extract the file name//
+				//*JAH ADJUSTMENTS TO DEAL WITH WEIRD MAC ZIPPED NEW FILES*//
 				
 				tempfile temp
 				!ls *.dta > `temp'
