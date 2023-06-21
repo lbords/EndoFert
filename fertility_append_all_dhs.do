@@ -106,7 +106,7 @@ foreach dhs_file in `r(files)' {
 		replace std_adm_region = adm_region if missing(std_adm_region)
 			
 		* note: incorporate these into the standardized adm region data file above, and then tidy up again
-		do "$dropbox_base/Research/DHS Core Code/dofiles/std_adm_to_dhsregna.do"
+		do "$dofiles_dir/DHS_Core_Code/dofiles/std_adm_to_dhsregna.do"
 
 
 	***** New weights by Gordon:
