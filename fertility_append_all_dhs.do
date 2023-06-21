@@ -19,14 +19,14 @@ capture set matsize 11000
 
 
 * Define OS for automated file opening etc
-*global stata_os "UNIX"
-global stata_os "MAC"
+global stata_os "UNIX"
+*global stata_os "MAC"
 *global stata_os "WIN"
 
 	**********************
 	*Luc/Akash Cadejo server dirs:
 	global home_dir "raid/lfborden/Endogenous_Fertility"
-	global data_dir "$home_dir/DHS Database/"
+	global data_dir "$home_dir/DHS_Database/"
 	global dofiles_dir "$home_dir/Do files"
 	
 	global dhs_dir "$data_dir/raw_dhs_data"
