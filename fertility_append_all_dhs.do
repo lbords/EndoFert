@@ -99,7 +99,7 @@ foreach dhs_file in `r(files)' {
 
 		* Standardize adm_region names
 		sort dhscc adm_region
-		merge m:1 dhscc adm_region using "$dropbox_base/Research/DHS Core Code/data/dhs_dhscc_global_std_adm_region.dta"
+		merge m:1 dhscc adm_region using "$dofiles_dir/DHS_Core_Code/data/dhs_dhscc_global_std_adm_region.dta"
 		drop if _merge ==2
 			drop _merge	
 
