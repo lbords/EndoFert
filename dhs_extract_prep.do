@@ -85,43 +85,43 @@ global stata_os "UNIX"
 
 	global countriesList ""
 	
-	{
-				cd "$dhs_dir/$currCountry/$currYear"
-				
-				//* unzip the individual level file containing IR (for indiv recode) and make sure all unzipped files are lower case (-L)//
-				//* this should leave a single .dta file in the directory, and a bunch of other associated *ir* files*//
-				
-				capture !unzip -o -L *IR*.zip
-				capture !unzip -o -L *IR*.ZIP
-				capture !unzip -o -j -LL *ir*.zip 
-			
-				//* load the appropriate dta file into a tempfile, insheet that, and extract the file name//
-				//*JAH ADJUSTMENTS TO DEAL WITH WEIRD MAC ZIPPED NEW FILES*//
-				
-				tempfile temp
-				!ls *.dta > `temp'
-				capture insheet using `temp', clear
-				display "the error code is" 
-				display _rc
-				if _rc!=0 {ls
-						tempfile temp
-						!ls *.DTA > `temp'
-						insheet using `temp', clear
-						}
-					else {	
-						insheet using `temp', clear
-						}
-				
-				* note there should only be one variable from this, so the loop is just for catching purposes
-				foreach var of varlist *{
-						* trim off the file extension
-						global currFile = substr("`var'",1,strlen("`var'")-3)
-							global currFile "$currFile.dta"
-							global currCountryCode = substr("`var'",1,2)
-					}		
-				use "$currFile", clear
-				!rm *ir
-		}
+	*UNIX / MAC extract CODE :
+		cd "$dhs_dir/$currCountry/$currYear"
+
+		* unzip the individual level file containing IR (for indiv recode) and make sure all unzipped files are lower case (-L)
+		* this should leave a single .dta file in the directory, and a bunch of other associated *ir* files
+			capture !unzip -o -L *IR*.zip
+			capture !unzip -o -L *IR*.ZIP
+			capture !unzip -o -j -LL *ir*.zip
+
+		* load the appropriate dta file into a tempfile, insheet that, and extract the file name
+		*JAH ADJUSTMENTS TO DEAL WITH WEIRD MAC ZIPPED NEW FILES
+			tempfile temp
+			!ls *.dta > `temp'
+			capture insheet using `temp', clear
+			display "the error code is"
+			display _rc
+			if _rc!=0 {ls
+			tempfile temp
+			!ls *.DTA > `temp'
+			insheet using `temp', clear
+			}
+			else {
+			insheet using `temp', clear
+	}
+
+* note there should only be one variable from this, so the loop is just for catching purposes
+foreach var of varlist *{
+* trim off the file extension
+global currFile = substr("`var'",1,strlen("`var'")-3)
+global currFile "$currFile.dta"
+global currCountryCode = substr("`var'",1,2)
+}
+use "$currFile", clear
+!rm *ir
+
+
+//
 
 
 *********************************
