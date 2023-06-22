@@ -86,7 +86,7 @@ global stata_os "UNIX"
 	global countriesList ""
 	
 	{
-				cd $dhs_dir
+				cd "$dhs_dir/$currCountry/$currYear"
 				
 				//* unzip the individual level file containing IR (for indiv recode) and make sure all unzipped files are lower case (-L)//
 				//* this should leave a single .dta file in the directory, and a bunch of other associated *ir* files*//
