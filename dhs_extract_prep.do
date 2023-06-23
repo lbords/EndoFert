@@ -93,8 +93,8 @@ global stata_os "UNIX"
 				global countriesList "$countriesList `currCountry'"
 				global subdirs ""
 			qui cd "`d'"
-			global test_dir2 : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? // check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long
-			foreach subd in `test_dir2'{
+			global dhs_dirs_list : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? // check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long
+			foreach subd in `dhs_dirs_list'{
 				local currSurvey "`subd'"
 				qui cd "`subd'"
 				global dhs_dirs_list : dir . dirs "*" *IR* // IR for individual recode
