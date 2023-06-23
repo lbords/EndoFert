@@ -85,29 +85,34 @@ global stata_os "UNIX"
 
 	global countriesList ""
 	
-	*UNIX / MAC extract CODE :
-		cd "$dhs_dir/$currCountry/$currYear"
-
-		* unzip the individual level file containing IR (for indiv recode) and make sure all unzipped files are lower case (-L)
-		* this should leave a single .dta file in the directory, and a bunch of other associated *ir* files
-			capture !unzip -o -L *IR*.zip
-			capture !unzip -o -L *IR*.ZIP
-			capture !unzip -o -j -LL *ir*.zip
-
-		* load the appropriate dta file into a tempfile, insheet that, and extract the file name
-		*JAH ADJUSTMENTS TO DEAL WITH WEIRD MAC ZIPPED NEW FILES
-			tempfile temp
-			!ls *.dta > `temp'
-			capture insheet using `temp', clear
-			display "the error code is"
-			display _rc
-			if _rc!=0 {ls
-			tempfile temp
-			!ls *.DTA > `temp'
-			insheet using `temp', clear
+	cd "$dhs_dir"
+	folders 
+	foreach d in `r(folders)' {
+		if substr("`d'",1,1)!="." &  substr("`d'",1,1)!="_"{  // exclude the non-country admin data folders
+			local currCountry "`d'"
+				global countriesList "$countriesList `currCountry'"
+				global subdirs ""
+			qui cd "`d'"
+			folders *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? // check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long
+			foreach subd in `r(folders)'{
+				local currSurvey "`subd'"
+				qui cd "`subd'"
+				folders *IR* // IR for individual recode
+				foreach subsubd in `r(folders)'{
+					qui cd "`subsubd'"
+					fs *IR*.dta // get all indiv recode files 
+					foreach dhs_file in `r(files)'{
+						global subdirs "$subdirs `subd'/`subsubd'/`dhs_file'"
+					}
+					display "$subdirs"
+					qui cd ..
+					
+				}
+				qui cd ..
 			}
-			else {
-			insheet using `temp', clear
+			global subd_`currCountry' "$subdirs"
+			qui cd ..    
+		}
 	}
 
 * note there should only be one variable from this, so the loop is just for catching purposes
