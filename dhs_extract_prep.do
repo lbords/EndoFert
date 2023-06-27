@@ -114,6 +114,9 @@ foreach d in "$dhs_dirs_list" {
     }
 }
 
+display display "$dhs_dirs_list"
+
+
 * note there should only be one variable from this, so the loop is just for catching purposes
 foreach var of varlist *{
 * trim off the file extension
