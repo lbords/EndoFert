@@ -114,7 +114,6 @@ foreach d in "$dhs_dirs_list" {
     }
 }
 
-display "$dhs_dirs_list"
 
 
 * note there should only be one variable from this, so the loop is just for catching purposes
