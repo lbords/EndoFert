@@ -86,34 +86,33 @@ global stata_os "UNIX"
 	global countriesList ""
 	
 	cd "$dhs_dir"
-	global list dhs_dirs_list : dir . dirs "*"
-	foreach d in $dhs_dirs_list{
-		if substr("`d'",1,1)!="." &  substr("`d'",1,1)!="_"{  // exclude the non-country admin data folders
-			local currCountry "`d'"
-				global countriesList "$countriesList `currCountry'"
-				global subdirs ""
-			qui cd "`d'"
-			global list dhs_dirs_list : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? // check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long
-			foreach subd in $dhs_dirs_list{
-				local currSurvey "`subd'"
-				qui cd "`subd'"
-				global list dhs_dirs_list : dir . dirs "*" *IR* // IR for individual recode
-				foreach subsubd in $dhs_dirs_list{
-					qui cd "`subsubd'"
-					global list dhs_dirs_list : dir . dirs "*" *IR*.dta // get all indiv recode files 
-					foreach dhs_file in $dhs_dirs_list{
-						global subdirs "$subdirs `subd'/`subsubd'/`dhs_file'"
-					}
-					display "$subdirs"
-					qui cd ..
-					
-				}
-				qui cd ..
-			}
-			global subd_`currCountry' "$subdirs"
-			qui cd ..    
-		}
-	}
+global list dhs_dirs_list : dir . dirs "*"
+foreach d in "$dhs_dirs_list" {
+    if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  /* exclude the non-country admin data folders */
+        global currCountry "`d'"
+        global countriesList "$countriesList `currCountry'"
+        global subdirs ""
+        qui cd "`d'"
+        global list dhs_dirs_list : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
+        foreach subd in "$dhs_dirs_list" {
+            local currSurvey "`subd'"
+            qui cd "`subd'"
+            global list dhs_dirs_list : dir . dirs "*" *IR* /* IR for individual recode */
+            foreach subsubd in "$dhs_dirs_list" {
+                qui cd "`subsubd'"
+                global list dhs_dirs_list : dir . dirs "*" *IR*.dta /* get all indiv recode files */
+                foreach dhs_file in "$dhs_dirs_list" {
+                    global subdirs "$subdirs `subd'/`subsubd'/`dhs_file'"
+                }
+                display "$subdirs"
+                qui cd ..
+            }
+            qui cd ..
+        }
+        global subd_`currCountry' "$subdirs"
+        qui cd ..
+    }
+}
 
 * note there should only be one variable from this, so the loop is just for catching purposes
 foreach var of varlist *{
