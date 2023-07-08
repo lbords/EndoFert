@@ -113,7 +113,6 @@ foreach d in "$dhs_dirs_list" { /* Creates a loop that assigns the current folde
         }
         global subd_`currCountry' "$subdirs"
         qui cd ..
-    }
 }
 
 
