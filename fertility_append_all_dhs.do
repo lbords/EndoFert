@@ -20,8 +20,8 @@ capture set matsize 11000
 
 * Define OS for automated file opening etc
 global stata_os "UNIX"
-*global stata_os "MAC"
-*global stata_os "WIN"
+/*global stata_os "MAC"*/
+/*global stata_os "WIN"*/
 
 	**********************
 	*Luc/Akash Cadejo server dirs:
