@@ -17,6 +17,10 @@ capture log close
 capture set maxvar 12000
 capture set matsize 11000
 
+**************
+/* For Luc: */
+set trace on
+**************
 
 * Define OS for automated file opening etc
 global stata_os "UNIX"
