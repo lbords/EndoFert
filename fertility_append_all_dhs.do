@@ -18,7 +18,6 @@ capture set maxvar 12000
 capture set matsize 11000
 
 **************
-/* For Luc: */
 set trace on
 **************
 
