@@ -19,9 +19,10 @@ capture log close
 capture set maxvar 12000
 capture set matsize 11000
 
+**************
 /* For Luc: */
 set trace on
-
+**************
 
 log using "dhs_extract_prep.txt", text replace
 
