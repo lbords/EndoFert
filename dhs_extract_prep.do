@@ -87,10 +87,10 @@ global stata_os "UNIX"
 	
 	cd "$dhs_dir" /* Changing directory to dhs_raw_data */
 global list $dhs_dirs_list : dir . dirs "*" /* Creating a global macro variable which lists all folders within dhs_raw_data */
-foreach d in "$dhs_dirs_list" {
-    if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  /* exclude the non-country admin data folders */
-        global currCountry "`d'"
-        global countriesList "$countriesList `currCountry'"
+foreach d in "$dhs_dirs_list" { /* Creates a loop that assigns the current folder to a local variable "d" */
+    if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  /* if a non-country admin data folder, we exclude */
+        global currCountry "`d'" /* Assign d to as current country, a global macro var "currCountry" */
+        global countriesList "$countriesList `currCountry'" 
         global subdirs ""
         qui cd "`d'"
         global list $dhs_dirs_list : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
