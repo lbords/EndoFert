@@ -87,35 +87,38 @@ global stata_os "UNIX"
 *			note that the general structure of country>surveys>subdirs>*IR*.dta file must be in place (for now)
 
 	global countriesList "" /* Declaring macro variable and establishing that it will be a text string */
-
-cd "$dhs_dir" /* Changing directory to dhs_raw_data */
+	
+	cd "$dhs_dir" /* Changing directory to dhs_raw_data */
 global list $dhs_dirs_list : dir . dirs "*" /* Creating a global macro variable which lists all folders within dhs_raw_data */
-
 foreach d in "$dhs_dirs_list" { /* Creates a loop that assigns the current folder to a local variable "d" */
-    if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" { /* If a non-country admin data folder, we exclude */
-        local currCountry "`d'" /* Assigns the current folder to a local macro variable "currCountry" */
-        global countriesList "`countriesList' `currCountry'" /* Concatenates the current country to the existing countriesList */
-        local subdirs "" /* Declaring macro variable subdirs and establishing that it will be a text string */
-        qui cd "`d'" /* Quietly change directory to the current folder (currCountry) */
-
-        global list $dhs_dirs_list_special : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* Checks for all dhs folders that don't have the "special" string in them, and hence are 4-7 characters long */
-
+    if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  /* if a non-country admin data folder, we exclude */
+        global currCountry "`d'" /* Assign d as a global macro var "currCountry" */
+        global countriesList "$countriesList `currCountry'" /* Specify that countriesList should be populatied with a list of the results from currCountry*/ 
+        global subdirs ""  /* Declaring macro variable subdirs and establishing that it will be a text string */
+        qui cd "`d'" /* quietly change directory to local variable (currCountry)*/
+        global list $dhs_dirs_list : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
+        foreach subd in "$dhs_dirs_list" {
+        global list $dhs_dirs_list_special : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
         foreach subd in "$dhs_dirs_list_special" {
             local currSurvey "`subd'"
             qui cd "`subd'"
+            global list $dhs_dirs_list : dir . dirs "*" *IR* /* IR for individual recode */
+            foreach subsubd in "$dhs_dirs_list" {
             global list $dhs_dirs_list_ir : dir . dirs "*" *IR* /* IR for individual recode */
             foreach subsubd in "$dhs_dirs_list_ir" {
                 qui cd "`subsubd'"
-                global list $dhs_dirs_list_ind_ir : dir . dirs "*" *IR*.dta /* Gets all individual recode files */
+                global list $dhs_dirs_list : dir . dirs "*" *IR*.dta /* get all indiv recode files */
+                foreach dhs_file in "$dhs_dirs_list" {
+                global list $dhs_dirs_list_ind_ir : dir . dirs "*" *IR*.dta /* get all indiv recode files */
                 foreach dhs_file in "$dhs_dirs_list_ind_ir" {
-                    local subdirs "`subdirs' `subd'/`subsubd'/`dhs_file'" /* Concatenates the current subdirectory and file to the existing subdirs */
+                    global subdirs "$subdirs `subd'/`subsubd'/`dhs_file'"
                 }
                 display "$subdirs"
                 qui cd ..
             }
             qui cd ..
         }
-        local subd_`currCountry' "`subdirs'" /* Assigns the value of subdirs to a local macro variable specific to each country */
+        global subd_`currCountry' "$subdirs"
         qui cd ..
     }
 }
