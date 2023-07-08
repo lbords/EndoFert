@@ -34,31 +34,7 @@ global stata_os "UNIX"
 	**********************
 
 
-	/**********************
-	* Jesse office home data bulk and DHS dirs:
-	* JAH office directories
-	global dropbox_base "C:\Users\jkanttilahughes\Dropbox"
-
-	global home_dir "$dropbox_base\Research\Endogenous Fertility"
-	global data_dir "$home_dir\data"
-	global dofiles_dir "$home_dir/dofiles"
-	global output_dir "$home_dir/output"
 	
-	global dhs_output_dir "C:\bulk\DHS"
-	**********************/
-
-	
-	/**********************
-	* Gordon directories:
-	global dropbox_base "C:\Users\gmccord\Dropbox\"
-
-	global home_dir "$dropbox_base\Shared\DHS Core Code"
-	global data_dir "$home_dir\data"
-	global dofiles_dir "$home_dir/dofiles"
-	
-	global dhs_dir "$dropbox_base\Shared\DHS Database\raw_dhs_data"
-	global dhs_output_dir "C:\Users\gmccord\Dropbox\Shared\DHS Database\clean_output"
-	**********************/
 	
 	
 	global mom_data_keepers "caseid country survey_year adm_region cluster_id dhscc dhsphase dhs_smpl_wgt_raw dhs_smpl_wgt_adj interview_month interview_year interview_day w_birth_month w_birth_year age rural urban edu_none edu_primary edu_secondary edu_higher edu_singleyrs illiterate semiliterate literate unmarried married widowed divorced sterilized marriage_year w_age_intercourse age_firstbirth age_firstmarriage total_children total_sons total_daughters total_sons_mort total_daughts_mort total_child_mort w_ideal_num_kids w_ideal_num_boys w_ideal_num_girls w_pref_kid_in2yrs w_pref_kid_after2yrs w_pref_nomorekids w_pref_sterilized w_pref_infecud b3_01 b4_01 b5_01  b8_01 v008 interview_date"
