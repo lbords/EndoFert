@@ -83,10 +83,10 @@ global stata_os "UNIX"
 * 			Then, make a subdir_country global for each country so we can call all the files in the next loop
 *			note that the general structure of country>surveys>subdirs>*IR*.dta file must be in place (for now)
 
-	global countriesList ""
+	global countriesList "" /* Declaring macro variable and establishing that it will be a text string */
 	
-	cd "$dhs_dir"
-global list $dhs_dirs_list : dir . dirs "*"
+	cd "$dhs_dir" /* Changing directory to dhs_raw_data */
+global list $dhs_dirs_list : dir . dirs "*" /* Creating a global macro variable which lists all folders within dhs_raw_data */
 foreach d in "$dhs_dirs_list" {
     if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  /* exclude the non-country admin data folders */
         global currCountry "`d'"
