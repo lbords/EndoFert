@@ -69,8 +69,8 @@ global stata_os "UNIX"
 cd "$dhs_output_dir"
 local first_CountryObs = 1
 
-global test : dir . dirs "*"
-foreach dhs_file in `r(test)' {
+global list $test : dir . dirs "*"
+foreach dhs_file in $test {
     use "`dhs_file'", clear
 
 	local keepers " "
