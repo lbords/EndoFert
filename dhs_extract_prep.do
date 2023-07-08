@@ -85,7 +85,6 @@ global stata_os "UNIX"
 * 			First, get a master list of countries from the base dhs_dir
 * 			Then, make a subdir_country global for each country so we can call all the files in the next loop
 *			note that the general structure of country>surveys>subdirs>*IR*.dta file must be in place (for now)
-
 	global countriesList "" /* Declaring macro variable and establishing that it will be a text string */
 	
 	cd "$dhs_dir" /* Changing directory to dhs_raw_data */
@@ -96,19 +95,13 @@ foreach d in "$dhs_dirs_list" { /* Creates a loop that assigns the current folde
         global countriesList "$countriesList `currCountry'" /* Specify that countriesList should be populatied with a list of the results from currCountry*/ 
         global subdirs ""  /* Declaring macro variable subdirs and establishing that it will be a text string */
         qui cd "`d'" /* quietly change directory to local variable (currCountry)*/
-        global list $dhs_dirs_list : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
-        foreach subd in "$dhs_dirs_list" {
         global list $dhs_dirs_list_special : dir . dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
         foreach subd in "$dhs_dirs_list_special" {
             local currSurvey "`subd'"
             qui cd "`subd'"
-            global list $dhs_dirs_list : dir . dirs "*" *IR* /* IR for individual recode */
-            foreach subsubd in "$dhs_dirs_list" {
             global list $dhs_dirs_list_ir : dir . dirs "*" *IR* /* IR for individual recode */
             foreach subsubd in "$dhs_dirs_list_ir" {
                 qui cd "`subsubd'"
-                global list $dhs_dirs_list : dir . dirs "*" *IR*.dta /* get all indiv recode files */
-                foreach dhs_file in "$dhs_dirs_list" {
                 global list $dhs_dirs_list_ind_ir : dir . dirs "*" *IR*.dta /* get all indiv recode files */
                 foreach dhs_file in "$dhs_dirs_list_ind_ir" {
                     global subdirs "$subdirs `subd'/`subsubd'/`dhs_file'"
