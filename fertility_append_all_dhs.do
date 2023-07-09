@@ -50,7 +50,7 @@ local first_CountryObs = 1
 
 global list $dhs_dir_womens_list : dir . dirs "*"
 foreach dhs_file in "$dhs_dir_womens_list" {
-    use "`dhs_file'", clear
+    use "'dhs_file'", clear
 
 	local keepers " "
 	foreach w_var of global mom_data_keepers{
