@@ -91,6 +91,7 @@ global stata_os "UNIX"
 	
 	cd "$dhs_dir" /* Changing directory to dhs_raw_data */
 global list $dhs_dirs_list : dir . dirs "*" /* Creating a global macro variable which lists all folders within dhs_raw_data */
+STOP
 foreach d in "$dhs_dirs_list" { /* Creates a loop that assigns the current folder to a local variable "d" */
     if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  /* if a non-country admin data folder, we exclude */
         global currCountry "`d'" /* Assign d as a global macro var "currCountry" */
