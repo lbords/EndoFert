@@ -95,7 +95,7 @@ foreach d in $dhs_dirs_list {
 	}
 }
 
-display "$countriesList"
+display "$currCountry"
 
 STOP
         
