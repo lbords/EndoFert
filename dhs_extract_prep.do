@@ -91,17 +91,7 @@ foreach d in $dhs_dirs_list {
   if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  
         global currCountry "`d'" 
 	global countriesList "$countriesList `currCountry'" 
-        global subdirs ""  
-display "$currCountry"
-	}
-}
-
-display "$countriesList"
-
-
-STOP
-        
-
+        global subdirs "" 
 
 qui cd "`d'" 
         global dhs_dirs_list_special : dir "." dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
@@ -124,7 +114,7 @@ qui cd "`subd'"
         global subd_`currCountry' "$subdirs"
         qui cd ..
 }
-
+}
 
 
 
