@@ -90,6 +90,8 @@ global dhs_dirs_list : dir "." dirs "*"
 foreach d in $dhs_dirs_list { 
   if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  
         global currCountry "`d'" 
+	global countriesList "$countriesList `currCountry'" 
+        global subdirs ""  
 
 	display "$currCountry"
 	}
@@ -97,15 +99,7 @@ foreach d in $dhs_dirs_list {
 
 
 STOP
-        global countriesList "$countriesList `currCountry'" 
-        global subdirs ""  
-
-}
-}
-
-display $countriesList
-
-STOP 
+        
 
 
 qui cd "`d'" 
