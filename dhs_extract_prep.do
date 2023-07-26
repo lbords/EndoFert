@@ -98,7 +98,6 @@ foreach d in $dhs_dirs_list {
 }
 }
 
-display $currCountry
 display $countriesList
 
 STOP 
