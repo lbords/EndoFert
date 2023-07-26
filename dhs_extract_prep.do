@@ -95,6 +95,7 @@ foreach d in $dhs_dirs_list {
 
 }
 }
+display $currCountry
 STOP
         global countriesList "$countriesList `currCountry'" 
         global subdirs ""  
