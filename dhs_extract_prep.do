@@ -91,24 +91,16 @@ global dhs_dirs_list : dir "." dirs "*"
 foreach d in $dhs_dirs_list { 
 
   if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  
-        global currCountry "`d'" 
-
-	display "$currCountry"
-	}
-}
-
-STOP ------
-    if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  
-        global currCountry "`d'" 
+        global currCountry "`d'"
         global countriesList "$countriesList `currCountry'" 
         global subdirs ""  
 
-        qui cd "`d'" 
-       global dhs_dirs_list_special : dir "." dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
+qui cd "`d'" 
+        global dhs_dirs_list_special : dir "." dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
   
 foreach subd in $dhs_dirs_list_special {
             local currSurvey "`subd'"
-            qui cd "`subd'"
+qui cd "`subd'"
             global dhs_dirs_list_ir : dir "." dirs "*" *IR* /* IR for individual recode */
             foreach subsubd in $dhs_dirs_list_ir {
                 qui cd "`subsubd'"
