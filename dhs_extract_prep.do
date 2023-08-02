@@ -90,9 +90,10 @@ global dhs_dirs_list : dir "." dirs "*"
 foreach d in $dhs_dirs_list { 
   if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  
         global currCountry "`d'" 
+}
+}
 display "`currCountry'"
-}
-}
+
 STOP
 
 	global countriesList "$countriesList `currCountry'" 
