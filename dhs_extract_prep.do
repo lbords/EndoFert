@@ -92,7 +92,7 @@ foreach d in $dhs_dirs_list {
         global currCountry "`d'" 
 }
 }
-display "`currCountry'"
+display "`d'"
 
 STOP
 
