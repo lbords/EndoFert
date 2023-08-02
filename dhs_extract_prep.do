@@ -95,13 +95,6 @@ foreach d in $dhs_dirs_list {
 
 cd "`d'" 
 
-
-}
-
-}
-
-STOP
-
         global dhs_dirs_list_special : dir "." dirs "*" *dhs_????  *dhs_????? *dhs_?????? *dhs_??????? /* check for all dhs folders that don't have the "special" string in them, and hence are 4-7 char long */
   
 foreach subd in $dhs_dirs_list_special {
