@@ -95,7 +95,7 @@ foreach d in $dhs_dirs_list {
         global currCountry "`d'"
 	global countriesList "$countriesList `currCountry'" 
         global subdirs "" 
-	display "`currCountry'"
+	display "`d'"
 qui cd "`d'" 
 
 }
