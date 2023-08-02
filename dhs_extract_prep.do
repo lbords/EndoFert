@@ -89,8 +89,9 @@ global stata_os "UNIX"
 global dhs_dirs_list : dir "." dirs "*" 
 foreach d in $dhs_dirs_list { 
   if substr("`d'", 1, 1) != "." & substr("`d'", 1, 1) != "_" {  
-        global currCountry "`d'" 
-display "`d'"
+        global currCountry "`d'"
+	global countriesList "$countriesList `currCountry'" 
+display "$countriesList `currCountry'"
 }
 }
 
