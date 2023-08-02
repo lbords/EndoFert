@@ -99,7 +99,7 @@ cd "`d'"
   
 foreach subd in $dhs_dirs_list_special {
             local currSurvey "`subd'"
-display "$currSurvey"
+display "currSurvey"
 }
 }
 }
