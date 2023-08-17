@@ -3,11 +3,7 @@
 * Do file running women's fertility preferences 
 * Main results - entire women's sample 
 *--------------------------------------------------------------------*
-
-
-use JESSE'S DATASET
-
-
+	
 *--------------------------------------------------------------------*
 * (1.0)	Ideal number of children regressions
 *--------------------------------------------------------------------*	
@@ -17,7 +13,7 @@ use JESSE'S DATASET
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_fertility_preferences.tex", ///
+	outreg2 using "$d_output/womens_fertility_preferences.tex", ///
 	label excel dec(3) replace addtext(First births controls, YES, Demographic controls, NO)
 	
 // First birth controls + demographic controls
@@ -26,7 +22,7 @@ use JESSE'S DATASET
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_fertility_preferences.tex", ///
+	outreg2 using "$d_output/womens_fertility_preferences.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -38,7 +34,7 @@ use JESSE'S DATASET
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_fertility_preferences.tex", ///
+	outreg2 using "$d_output/womens_fertility_preferences.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, NO)
 	
 // First birth controls + demographic controls
@@ -47,7 +43,7 @@ use JESSE'S DATASET
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_fertility_preferences.tex", ///
+	outreg2 using "$d_output/womens_fertility_preferences.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -59,7 +55,7 @@ use JESSE'S DATASET
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_fertility_preferences.tex", ///
+	outreg2 using "$d_output/womens_fertility_preferences.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, NO)
 	
 // First birth controls + demographic controls
@@ -68,7 +64,7 @@ use JESSE'S DATASET
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
- 	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_fertility_preferences.tex", ///
+ 	outreg2 using "$d_output/womens_fertility_preferences.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, YES)
 	
 	
