@@ -4,8 +4,6 @@
 * Family Composition Regressions
 *--------------------------------------------------------------------*
 
-USE JESSE DATA
-
 *--------------------------------------------------------------------*
 * (1.1)	Ideal number of children - all girls 
 *--------------------------------------------------------------------*	
@@ -17,7 +15,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 	
-		outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+		outreg2 using "$d_output/family_comp.tex", ///
 		label excel dec(3) replace addtext(Recent birth controls, YES, Demographic controls, NO)
 		
 // Ideal number of children if two children are girls - controls added
@@ -28,7 +26,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 
-		outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+		outreg2 using "$d_output/family_comp.tex", ///
 		label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, YES)
 		
 *--------------------------------------------------------------------*
@@ -42,7 +40,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 		
-		outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+		outreg2 using "$d_output/family_comp.tex", ///
 		label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, NO)
 	
 // Ideal number of children if two children are boys - controls added
@@ -53,7 +51,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 		
-		outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+		outreg2 using "$d_output/family_comp.tex", ///
 		label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -67,7 +65,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 	
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+	outreg2 using "$d_output/family_comp.tex", ///
 	label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, NO)
 	
 // Ideal number of children if two children are girls - controls added
@@ -78,7 +76,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+	outreg2 using "$d_output/family_comp.tex", ///
 	label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -92,7 +90,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 	
-		outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+		outreg2 using "$d_output/family_comp.tex", ///
 		label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, NO)
 			
 // Ideal number of children if two children are boys - controls added
@@ -103,7 +101,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 		
-		outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+		outreg2 using "$d_output/family_comp.tex", ///
 		label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -117,7 +115,7 @@ USE JESSE DATA
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+	outreg2 using "$d_output/family_comp.tex", ///
 	label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, NO)
 	
 // Ideal number of children if two children are girls - controls added
@@ -128,7 +126,7 @@ USE JESSE DATA
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+	outreg2 using "$d_output/family_comp.tex", ///
 	label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -142,7 +140,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 	
-		outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+		outreg2 using "$d_output/family_comp.tex", ///
 		label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, NO)
 		
 // Ideal number of children if two children are boys - controls added
@@ -153,7 +151,7 @@ USE JESSE DATA
 		absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 		vce(cluster i.std_adm_region_code)
 		
-		outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/family_comp.tex", ///
+		outreg2 using "$d_output/family_comp.tex", ///
 	label excel dec(3) append addtext(Recent birth controls, YES, Demographic controls, YES)
 	
 	
