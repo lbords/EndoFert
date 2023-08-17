@@ -3,7 +3,9 @@
 * Do file running women's fertility preferences 
 * Natural SRB countries 
 *--------------------------------------------------------------------*
-	
+
+USE JESSE DATA
+
 *--------------------------------------------------------------------*
 * (1.0)	Ideal number of children regressions
 *--------------------------------------------------------------------*	
@@ -13,7 +15,7 @@
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "$d_output/womens_natural_SRB.tex", ///
+	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_natural_SRB.tex", ///
 	label excel dec(3) replace addtext(First births controls, YES, Demographic controls, NO)
 	
 // First birth controls + demographic controls
@@ -22,7 +24,7 @@
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "$d_output/womens_natural_SRB.tex", ///
+	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_natural_SRB.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -34,7 +36,7 @@
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
-	outreg2 using "$d_output/womens_natural_SRB.tex", ///
+	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_natural_SRB.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, NO)
 	
 // First birth controls + demographic controls
@@ -43,7 +45,7 @@
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
-	outreg2 using "$d_output/womens_natural_SRB.tex", ///
+	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_natural_SRB.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -55,7 +57,7 @@
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "$d_output/womens_natural_SRB.tex", ///
+	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_natural_SRB.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, NO)
 	
 // First birth controls + demographic controls
@@ -64,7 +66,7 @@
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
- 	outreg2 using "$d_output/womens_natural_SRB.tex", ///
+ 	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_natural_SRB.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, YES)
 	
 	
