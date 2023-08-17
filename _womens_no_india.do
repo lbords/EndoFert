@@ -3,9 +3,7 @@
 * Do file running women's fertility preferences 
 * No India sample as robustness check
 *--------------------------------------------------------------------*
-
-USE JESSE DATA
-
+	
 *--------------------------------------------------------------------*
 * (1.0)	Ideal number of children regressions
 *--------------------------------------------------------------------*	
@@ -15,7 +13,7 @@ USE JESSE DATA
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_no_india.tex", ///
+	outreg2 using "$d_output/womens_no_india.tex", ///
 	label excel dec(3) replace addtext(First births controls, YES, Demographic controls, NO)
 	
 // First birth controls + demographic controls
@@ -24,7 +22,7 @@ USE JESSE DATA
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_no_india.tex", ///
+	outreg2 using "$d_output/womens_no_india.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -36,7 +34,7 @@ USE JESSE DATA
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_no_india.tex", ///
+	outreg2 using "$d_output/womens_no_india.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, NO)
 	
 // First birth controls + demographic controls
@@ -45,7 +43,7 @@ USE JESSE DATA
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_no_india.tex", ///
+	outreg2 using "$d_output/womens_no_india.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, YES)
 	
 *--------------------------------------------------------------------*
@@ -57,7 +55,7 @@ USE JESSE DATA
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 
-	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_no_india.tex", ///
+	outreg2 using "$d_output/womens_no_india.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, NO)
 	
 // First birth controls + demographic controls
@@ -66,7 +64,7 @@ USE JESSE DATA
 	absorb(i.std_adm_region_code##i.interview_month i.interview_year) ///
 	vce(cluster i.std_adm_region_code)
 	
- 	outreg2 using "raid/lfborden/Endogenous_Fertility/reg_output/womens_no_india.tex", ///
+ 	outreg2 using "$d_output/womens_no_india.tex", ///
 	label excel dec(3) append addtext(First births controls, YES, Demographic controls, YES)
 	
 	
