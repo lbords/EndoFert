@@ -13,11 +13,11 @@
 * (0.1)	Setting Directories
 *--------------------------------------------------------------------*
 
-	global d_home "/Users/lauren/Desktop/thesis" 
-	global d_data "$d_home/data"	
-	global d_recodes "$d_data/recodes/womens_recodes" 
-	global d_do "$d_home/do_files/womens/_regressions"
-	global d_output "$d_home/output/tables/womens_regressions/"
+	global d_home "/raid/lfborden/Endogenous_Fertility" 
+	//global d_data "/home/jkanttilahughes/JESSESFILEPATHDATA"//	
+	global d_recodes "/home/jkanttilahughes/JESSESFILEPATHDATA" 
+	global d_do "$d_home/EndoFert"
+	global d_output "$d_home/reg_output"
 
 *--------------------------------------------------------------------*
 * (0.2)	Project Set Up
@@ -29,7 +29,7 @@
 	set more off			
 	set matsize 800	
 
-	use "$d_recodes/womens_culled.dta"
+	use "$d_recodes/womens_culled.dta" <---- UPDATE THIS W/ JESSE'S PATH
 	
 *--------------------------------------------------------------------*
 * (1.0)	Read in do files
