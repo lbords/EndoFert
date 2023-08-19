@@ -14,8 +14,8 @@
 *--------------------------------------------------------------------*
 
 	global d_home "/raid/lfborden/Endogenous_Fertility" 
-	//global d_data "/home/jkanttilahughes/JESSESFILEPATHDATA"//	
-	global d_recodes "/home/jkanttilahughes/JESSESFILEPATHDATA" 
+	//global d_data "/home/jkanttilahughes/data/fertility_global_mom_xsection.dta"	
+	global d_recodes "/home/jkanttilahughes/data/fertility_global_mom_xsection.dta" 
 	global d_do "$d_home/EndoFert"
 	global d_output "$d_home/reg_output"
 
