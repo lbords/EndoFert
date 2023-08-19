@@ -38,7 +38,7 @@
 *--------------------------------------------------------------------*	
 
 // Women's fertility preferences - entires women's sample
-	*do "$d_do/_womens_fertility_preferences.do"
+	do "$d_do/_womens_fertility_preferences.do"
 	
 // Women's fertility preferences - high fertility countries
 	*do "$d_do/_womens_high_fertility_countries.do"
