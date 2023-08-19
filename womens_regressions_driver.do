@@ -31,12 +31,15 @@
 
 	// Install reghdfe package:
 
-	cap ado uninstall ftools
-	cap ado uninstall reghdfe
-	cap ado uninstall ivreghdfe
-	net install ftools, from(/Users/bords/Documents/reghdfe_install)
-	net install reghdfe, from(/Users/bords/Documents/reghdfe_install)
-	net install ivreghdfe, from(/Users/bords/Documents/reghdfe_install)
+	ssc install reghdfe
+	ssc install ftools
+
+	*cap ado uninstall ftools
+	*cap ado uninstall reghdfe
+	*cap ado uninstall ivreghdfe
+	*net install ftools, from(/Users/bords/Documents/reghdfe_install)
+	*net install reghdfe, from(/Users/bords/Documents/reghdfe_install)
+	*net install ivreghdfe, from(/Users/bords/Documents/reghdfe_install)
 
 	use "$d_recodes/fertility_global_mom_xsection.dta"
 	
