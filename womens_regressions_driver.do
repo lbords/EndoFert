@@ -14,8 +14,8 @@
 *--------------------------------------------------------------------*
 
 	global d_home "/raid/lfborden/Endogenous_Fertility" 
-	//global d_data "/home/jkanttilahughes/data/fertility_global_mom_xsection.dta"	
-	global d_recodes "/home/jkanttilahughes/data/fertility_global_mom_xsection.dta" 
+	//global d_data "/home/jkanttilahughes/data"	
+	global d_recodes "/home/jkanttilahughes/data" 
 	global d_do "$d_home/EndoFert"
 	global d_output "$d_home/reg_output"
 
@@ -29,7 +29,7 @@
 	set more off			
 	set matsize 800	
 
-	use "$d_recodes/womens_culled.dta" <---- UPDATE THIS W/ JESSE'S PATH
+	use "$d_recodes/fertility_global_mom_xsection.dta"
 	
 *--------------------------------------------------------------------*
 * (1.0)	Read in do files
