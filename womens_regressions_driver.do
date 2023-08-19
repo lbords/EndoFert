@@ -29,6 +29,8 @@
 	set more off			
 	set matsize 800	
 
+	ssc install reghdfe
+
 	use "$d_recodes/fertility_global_mom_xsection.dta"
 	
 *--------------------------------------------------------------------*
