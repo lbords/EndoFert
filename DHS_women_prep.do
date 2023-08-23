@@ -143,17 +143,19 @@
 	collapse (max) recent_thirdborn_son recent_thirdborn_daughter recent_secondborn_son recent_secondborn_daughter secondborn_son thirdborn_daughter secondborn thirdborn monthofbirth monthofsurvey recentbirth firstborn birth_order recent_firstborn firstborn_daughter firstborn_son recent_firstborn_daughter recent_firstborn_son, by (country w_id)	
 	save "$d_recodes/child_recodes/child_data_collapsed.dta", replace
 
-	
+
+STOP
+
 *--------------------------------------------------------------------*
 * (2.1)	Merging with Women's DHS by women_id & country
 *--------------------------------------------------------------------*
 
-	use "$d_raw/womens_recode/global_xsection_mother.dta", clear
+	// use "$d_raw/womens_recode/global_xsection_mother.dta", clear
 	
-	sort country w_id
+	// sort country w_id
 	
-	merge m:1 country w_id using "$d_recodes/child_recodes/child_data_collapsed.dta"
-		drop _merge 
+	// merge m:1 country w_id using "$d_recodes/child_recodes/child_data_collapsed.dta"
+	// 	drop _merge 
 
 *--------------------------------------------------------------------*
 * (2.2)	Standardizing admin regions & generating codes for FE
@@ -161,18 +163,18 @@
 
 // Cleaning admin region info
 	
-	sort country adm_region
+	// sort country adm_region
 	
-	merge m:m adm_region country using "$d_supplemental/DHS_global_std_adm_region.dta"
+	// merge m:m adm_region country using "$d_supplemental/DHS_global_std_adm_region.dta"
 		drop _merge
 	
-	do "/Users/lauren/Desktop/thesis/do_files/data_prep/universal_prep/std_adm_to_dhs_regions.do"
+	// do "/Users/lauren/Desktop/thesis/do_files/data_prep/universal_prep/std_adm_to_dhs_regions.do"
 	
 // Generating non-string codes 
 
-	egen country_code = group(country)
-	egen dhsid_code = group(country dhsid)
-	egen std_adm_region_code = group(std_adm_region)
+	// egen country_code = group(country)
+	// egen dhsid_code = group(country dhsid)
+	// egen std_adm_region_code = group(std_adm_region)
 	egen std_adm_region_cc_code = group(country std_adm_region)
 	
 *--------------------------------------------------------------------*
