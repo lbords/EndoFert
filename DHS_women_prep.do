@@ -36,7 +36,7 @@
 * (1.1)	Generating birth variables & dummies
 *--------------------------------------------------------------------*
 
-	use "$d_raw/child_recode/DHS_global_child_xsection.dta", clear 
+	use "$d_raw/DHS_global_child_xsection.dta", clear 
 
 // Generating recent birth dummy for children born within 12 months
 // of DHS survey
@@ -141,7 +141,7 @@
 *--------------------------------------------------------------------*
 
 	collapse (max) recent_thirdborn_son recent_thirdborn_daughter recent_secondborn_son recent_secondborn_daughter secondborn_son thirdborn_daughter secondborn thirdborn monthofbirth monthofsurvey recentbirth firstborn birth_order recent_firstborn firstborn_daughter firstborn_son recent_firstborn_daughter recent_firstborn_son, by (country w_id)	
-	save "$d_recodes/child_recodes/child_data_collapsed.dta", replace
+	save "$d_recodes/child_data_collapsed.dta", replace
 
 
 STOP
