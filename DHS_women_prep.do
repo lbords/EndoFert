@@ -41,7 +41,7 @@
 // Generating recent birth dummy for children born within 12 months
 // of DHS survey
 
-	gen monthofbirth = ym(birth_year,birth_month)
+	gen monthofbirth = ym(w_birth_year,w_birth_month)
 		format monthofbirth %tm
 
 	gen monthofsurvey = ym(interview_year,interview_month)
