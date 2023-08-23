@@ -36,7 +36,7 @@
 * (1.1)	Generating birth variables & dummies
 *--------------------------------------------------------------------*
 
-	use "$d_raw/DHS_global_child_xsection.dta", clear 
+	use "$d_raw/fertility_global_mom_xsection.dta", clear 
 
 // Generating recent birth dummy for children born within 12 months
 // of DHS survey
