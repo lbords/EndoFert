@@ -17,7 +17,7 @@
 
 	global d_home "/raid/lfborden/Endogenous_Fertility"
 	global d_raw "/home/jkanttilahughes/data"
-	global d_recodes "/home/jkanttilahughes/data"
+	global d_recodes "$d_home/recodes"
 	//global d_supplemental "$d_home/data/supplemental_data"
 	global d_do "$d_home/EndoFert"
 
