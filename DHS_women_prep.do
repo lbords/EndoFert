@@ -395,7 +395,7 @@ STOP
 	
 *--------------------------------------------------------------------*			
 		
-	save "$d_recods/womens_recodes/womens_culled", replace
+	save "$d_recodes/womens_recodes/womens_culled", replace
 
 	
 	
