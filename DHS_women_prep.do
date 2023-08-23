@@ -15,11 +15,11 @@
 * (0.1)	Setting Directories
 *--------------------------------------------------------------------*
 
-	global d_home "/Users/lauren/Desktop/thesis"
-	global d_raw "$d_home/data/raw"
-	global d_recodes "$d_home/data/recodes"
-	global d_supplemental "$d_home/data/supplemental_data"
-	global d_do "$home/do_files/data_prep/universal_prep"
+	global d_home "/raid/lfborden/Endogenous_Fertility"
+	global d_raw "/home/jkanttilahughes/data"
+	global d_recodes "/home/jkanttilahughes/data"
+	//global d_supplemental "$d_home/data/supplemental_data"
+	global d_do "$d_home/EndoFert"
 
 *--------------------------------------------------------------------*
 * (0.2)	Project Set Up
