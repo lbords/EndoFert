@@ -282,7 +282,7 @@ STOP
 		replace low_fertility_individual = 1 if w_ideal_kids_trunc <= 3
 		label var low_fertility_individual "Desired fertililty 3 and under"
 
-	save "$d_recods/womens_recodes/womens_dhs_merged", replace
+	save "$d_recodes/womens_dhs_merged", replace
 
 		
 *--------------------------------------------------------------------*
