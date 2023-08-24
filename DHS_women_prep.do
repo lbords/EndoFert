@@ -144,18 +144,6 @@
 	save "$d_recodes/child_data_collapsed.dta", replace
 
 
-STOP
-
-*--------------------------------------------------------------------*
-* (2.1)	Merging with Women's DHS by women_id & country
-*--------------------------------------------------------------------*
-
-	// use "$d_raw/womens_recode/global_xsection_mother.dta", clear
-	
-	// sort country w_id
-	
-	// merge m:1 country w_id using "$d_recodes/child_recodes/child_data_collapsed.dta"
-	// 	drop _merge 
 
 *--------------------------------------------------------------------*
 * (2.2)	Standardizing admin regions & generating codes for FE
